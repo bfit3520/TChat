@@ -93,7 +93,7 @@ def chat():
     if request.form['user_nik'] == '':
 
         if text_chek(request.form['user_hak']) != request.form['user_text'] and request.form['user_text'] != '':
-            text_plus(request.form['user_hak'], "익명", request.form['user_text'])
+            text_plus_en(request.form['user_hak'], "익명", request.form['user_text'])
 
         return render_template('index.html',
                                 textInf = text_inf(10),
@@ -104,7 +104,7 @@ def chat():
     else:
 
         if text_chek(request.form['user_hak']) != request.form['user_text'] and request.form['user_text'] != '':
-            text_plus(request.form['user_hak'], request.form['user_nik'], request.form['user_text'])
+            text_plus_en(request.form['user_hak'], request.form['user_nik'], request.form['user_text'])
 
         return render_template('index.html',
                                 textInf = text_inf(10),
@@ -122,4 +122,5 @@ def chat():
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
+
 
