@@ -46,10 +46,10 @@ def text_plus(user_id, user_name, text): #채팅을 추가함
 def text_plus_en(user_id, user_name, text): #번역해 채팅을 추가함
     if detect(text) != 'ko':
         with open("text_log.txt", "a", encoding="utf-8") as f:
-        f.write(user_id + '-(구분자)-' + user_name + '-(구분자)-' + GoogleTranslator(source='auto', target='ko').translate(text) + '\n')
+            f.write(user_id + '-(구분자)-' + user_name + '-(구분자)-' + GoogleTranslator(source='auto', target='ko').translate(text) + '\n')
     else:
         with open("text_log.txt", "a", encoding="utf-8") as f:
-        f.write(user_id + '-(구분자)-' + user_name + '-(구분자)-' + text + '\n')
+            f.write(user_id + '-(구분자)-' + user_name + '-(구분자)-' + text + '\n')
 
 def text_chek(user_id):
     with open("text_log.txt", "r", encoding="utf-8") as f:
@@ -122,5 +122,6 @@ def chat():
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
+
 
 
